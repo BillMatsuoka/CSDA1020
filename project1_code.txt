@@ -1,0 +1,14 @@
+SELECT e.GlobalEventID,
+e.sqldate,
+e.Actor1Geo_CountryCode,
+e.Actor1Geo_fullname,
+e.Actor1CountryCode,
+e.Actor1Type1Code,
+e.IsRootEvent,
+e.EventCode,
+e.GoldsteinScale
+ from events e
+inner join cameoeventscode c on e.eventcode = c.eventcode
+inner join mentions m on e.globaleventid = m.globaleventcode
+where Actor1Geo_CountryCode in('US','UK','JA','IS','NZ','CH');
+
